@@ -1,0 +1,39 @@
+/random:
+fifo_20_10_500:   0.528
+fifo_20_10_5000:  0.502
+fifo_20_19_500:   0.096
+fifo_20_19_5000:  0.058
+
+lru_20_10_500:    0.536
+lru_20_10_5000:	  0.500
+lru_20_19_500:    0.110
+lru_20_19_5000:   0.046
+
+random_20_10_500:    0.124
+random_20_10_5000:	  0.007
+random_20_19_500:    0.078
+random_20_19_5000:   0.010
+
+随机数据情况下，random方法最好，lru方法略好于fifo方法
+
+/spacial locality:
+fifo_best:   0.267
+fifo_worse:  0.556
+lru_best:    0.213
+lru_worse:   0.981
+random_best:    0.200
+random_worse:   0.222
+
+spacial locality情况下random方法最好，LRU最坏情况page fault rate高于fifo，最好情况好于fifo
+
+/temporal locality:
+fifo_best:   0.312
+fifo_worse:  0.491
+lru_best:    0.273
+lru_worse:   0.477
+random_best:    0.273
+random_worse:   0.144
+
+temporal locality情况下random方法最好，LRU page fault rate低于fifo
+
+总之，整体上看，random方法最好，LRU方法次之，fifo最差，LRU耗费时间，fifo比LRU更快
